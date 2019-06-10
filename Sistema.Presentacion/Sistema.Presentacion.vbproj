@@ -94,6 +94,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="FrmCategoria.Designer.vb">
+      <DependentUpon>FrmCategoria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCategoria.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FrmPrincipal.resx">
@@ -104,6 +110,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCategoria.resx">
+      <DependentUpon>FrmCategoria.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
