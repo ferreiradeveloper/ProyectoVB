@@ -55,7 +55,7 @@ Public Class conexion
 
     Public Sub New()
         Me.Base = "dbsistemaVB"
-        Me.Servidor = "HOME"
+        Me.Servidor = "HOUSE"
         Me.Usuario = "sa"
         Me.Clave = "pefeto68"
         Me.conn = New SqlConnection(CrearCadena)
@@ -65,7 +65,7 @@ Public Class conexion
         Dim cadena As String
         cadena = "Server=" & Me.Servidor & "; Database=" & Me.Base & ";"
         If Me.Seguridad Then
-            cadena = cadena & "Integrated Secutity= SSPI"
+            cadena = cadena & "Integrated Security= SSPI"
         Else
             cadena = cadena & "User Id=" & Me.Usuario & ";Password" & Me.Clave
 
