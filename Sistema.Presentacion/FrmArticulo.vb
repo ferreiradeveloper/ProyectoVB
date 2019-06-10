@@ -1,7 +1,8 @@
-﻿Public Class FrmArticulo
+﻿Imports System.IO
+Public Class FrmArticulo
     Private RutaOrigen As String
     Private RutaDestino As String
-    Private Directorio As String = "C:\Preparacion\ProyectoVB\imagenes"
+    Private Directorio As String = "C:\Preparacion\ProyectoVB\imagenes\"
 
     Private Sub Formato()
         DgvListado.Columns(0).Visible = False
@@ -13,7 +14,7 @@
         DgvListado.Columns(5).Width = 150
         DgvListado.Columns(6).Width = 100
         DgvListado.Columns(7).Width = 100
-        DgvListado.Columns(8).Width = 00
+        DgvListado.Columns(8).Width = 200
         DgvListado.Columns(9).Width = 100
         DgvListado.Columns(10).Width = 100
 
@@ -57,8 +58,14 @@
         BtnActualizar.Visible = False
         Txtvalor.Text = ""
         TxtId.Text = ""
+        TxtCodigo.Text = ""
+        TxtPrecioVenta.Text = ""
         Txtnombre.Text = ""
         Txtdescripcion.Text = ""
+        TxtStock.Text = ""
+        Txtimagen.Text = ""
+        PicImagen.Image = Nothing
+
     End Sub
     Private Sub CargarCategoria()
         Try
@@ -90,5 +97,42 @@
 
         End If
 
+    End Sub
+
+    Private Sub BtnInsertar_Click(sender As Object, e As EventArgs) Handles BtnInsertar.Click
+        Try
+            If Me.ValidateChildren = True And CboCategoria.Text <> "" And Txtnombre.Text <> "" And TxtPrecioVenta.Text <> "" And TxtStock.Text <> "" Then
+                Dim Obj As New Entidades.Articulo
+                Dim Neg As New Negocio.NArticulo
+
+                Obj.IdCategorias = CboCategoria.SelectedValue
+                Obj.Codigo = TxtCodigo.Text
+                Obj.Nombre = Txtnombre.Text
+                Obj.PrecioVenta = TxtPrecioVenta.Text
+                Obj.Stock = TxtStock.Text
+                Obj.Imagen = Txtimagen.Text
+                Obj.Descripcion = Txtdescripcion.Text
+
+                If (Neg.Insertar(Obj)) Then
+                    MsgBox("Se ha Registrado Correctamente", vbOKOnly + vbInformation, "Registro Correcto")
+                    If (Txtimagen.Text <> "") Then
+                        RutaDestino = Directorio & Txtimagen.Text
+                        File.Copy(RutaOrigen, RutaDestino)
+                    End If
+                    Me.Listar()
+                Else
+                    MsgBox("No se logro Registrar", vbOKOnly + vbCritical, "Registro Incorrecto")
+                End If
+            Else
+                MsgBox("Complete los campos obligatorios (*)", vbOKOnly + vbCritical, "Falta ingresar datos")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub BtnCabcelar_Click(sender As Object, e As EventArgs) Handles BtnCabcelar.Click
+        Me.Limpiar()
+        TabGeneral.SelectedIndex = 0
     End Sub
 End Class

@@ -50,6 +50,12 @@ Partial Class FrmArticulo
         Me.Txtimagen = New System.Windows.Forms.TextBox()
         Me.Btncargarimagen = New System.Windows.Forms.Button()
         Me.PicImagen = New System.Windows.Forms.PictureBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.TxtCodigo = New System.Windows.Forms.TextBox()
+        Me.TxtStock = New System.Windows.Forms.TextBox()
+        Me.TxtPrecioVenta = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
         CType(Me.ErrorIcono, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -64,7 +70,7 @@ Partial Class FrmArticulo
         '
         'BtnActualizar
         '
-        Me.BtnActualizar.Location = New System.Drawing.Point(111, 285)
+        Me.BtnActualizar.Location = New System.Drawing.Point(111, 350)
         Me.BtnActualizar.Name = "BtnActualizar"
         Me.BtnActualizar.Size = New System.Drawing.Size(88, 20)
         Me.BtnActualizar.TabIndex = 7
@@ -81,7 +87,7 @@ Partial Class FrmArticulo
         '
         'BtnCabcelar
         '
-        Me.BtnCabcelar.Location = New System.Drawing.Point(263, 285)
+        Me.BtnCabcelar.Location = New System.Drawing.Point(263, 322)
         Me.BtnCabcelar.Name = "BtnCabcelar"
         Me.BtnCabcelar.Size = New System.Drawing.Size(89, 22)
         Me.BtnCabcelar.TabIndex = 5
@@ -90,7 +96,7 @@ Partial Class FrmArticulo
         '
         'BtnInsertar
         '
-        Me.BtnInsertar.Location = New System.Drawing.Point(111, 284)
+        Me.BtnInsertar.Location = New System.Drawing.Point(111, 321)
         Me.BtnInsertar.Name = "BtnInsertar"
         Me.BtnInsertar.Size = New System.Drawing.Size(88, 23)
         Me.BtnInsertar.TabIndex = 4
@@ -99,7 +105,7 @@ Partial Class FrmArticulo
         '
         'Txtdescripcion
         '
-        Me.Txtdescripcion.Location = New System.Drawing.Point(111, 207)
+        Me.Txtdescripcion.Location = New System.Drawing.Point(111, 244)
         Me.Txtdescripcion.Multiline = True
         Me.Txtdescripcion.Name = "Txtdescripcion"
         Me.Txtdescripcion.Size = New System.Drawing.Size(396, 62)
@@ -107,7 +113,7 @@ Partial Class FrmArticulo
         '
         'Txtnombre
         '
-        Me.Txtnombre.Location = New System.Drawing.Point(110, 144)
+        Me.Txtnombre.Location = New System.Drawing.Point(110, 194)
         Me.Txtnombre.Name = "Txtnombre"
         Me.Txtnombre.Size = New System.Drawing.Size(397, 20)
         Me.Txtnombre.TabIndex = 2
@@ -115,7 +121,7 @@ Partial Class FrmArticulo
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(17, 210)
+        Me.Label2.Location = New System.Drawing.Point(17, 247)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(63, 13)
         Me.Label2.TabIndex = 1
@@ -123,6 +129,12 @@ Partial Class FrmArticulo
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.Label7)
+        Me.TabPage2.Controls.Add(Me.Label6)
+        Me.TabPage2.Controls.Add(Me.TxtPrecioVenta)
+        Me.TabPage2.Controls.Add(Me.TxtStock)
+        Me.TabPage2.Controls.Add(Me.TxtCodigo)
+        Me.TabPage2.Controls.Add(Me.Label5)
         Me.TabPage2.Controls.Add(Me.PicImagen)
         Me.TabPage2.Controls.Add(Me.Btncargarimagen)
         Me.TabPage2.Controls.Add(Me.Txtimagen)
@@ -148,7 +160,7 @@ Partial Class FrmArticulo
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(17, 151)
+        Me.Label1.Location = New System.Drawing.Point(17, 201)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(57, 13)
         Me.Label1.TabIndex = 0
@@ -267,7 +279,7 @@ Partial Class FrmArticulo
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(20, 41)
+        Me.Label3.Location = New System.Drawing.Point(17, 49)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(65, 13)
         Me.Label3.TabIndex = 8
@@ -316,6 +328,54 @@ Partial Class FrmArticulo
         Me.PicImagen.TabIndex = 13
         Me.PicImagen.TabStop = False
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(17, 81)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(40, 13)
+        Me.Label5.TabIndex = 14
+        Me.Label5.Text = "Codigo"
+        '
+        'TxtCodigo
+        '
+        Me.TxtCodigo.Location = New System.Drawing.Point(110, 78)
+        Me.TxtCodigo.Name = "TxtCodigo"
+        Me.TxtCodigo.Size = New System.Drawing.Size(397, 20)
+        Me.TxtCodigo.TabIndex = 15
+        '
+        'TxtStock
+        '
+        Me.TxtStock.Location = New System.Drawing.Point(111, 113)
+        Me.TxtStock.Name = "TxtStock"
+        Me.TxtStock.Size = New System.Drawing.Size(146, 20)
+        Me.TxtStock.TabIndex = 16
+        '
+        'TxtPrecioVenta
+        '
+        Me.TxtPrecioVenta.Location = New System.Drawing.Point(111, 154)
+        Me.TxtPrecioVenta.Name = "TxtPrecioVenta"
+        Me.TxtPrecioVenta.Size = New System.Drawing.Size(147, 20)
+        Me.TxtPrecioVenta.TabIndex = 17
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(17, 120)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(35, 13)
+        Me.Label6.TabIndex = 18
+        Me.Label6.Text = "Stock"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(17, 161)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(83, 13)
+        Me.Label7.TabIndex = 19
+        Me.Label7.Text = "Precio de Venta"
+        '
         'FrmArticulo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -363,4 +423,10 @@ Partial Class FrmArticulo
     Friend WithEvents Btncargarimagen As Button
     Friend WithEvents Txtimagen As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents TxtPrecioVenta As TextBox
+    Friend WithEvents TxtStock As TextBox
+    Friend WithEvents TxtCodigo As TextBox
+    Friend WithEvents Label5 As Label
 End Class
