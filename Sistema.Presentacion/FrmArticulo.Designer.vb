@@ -44,6 +44,8 @@ Partial Class FrmArticulo
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.DgvListado = New System.Windows.Forms.DataGridView()
         Me.TabGeneral = New System.Windows.Forms.TabControl()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.CboCategoria = New System.Windows.Forms.ComboBox()
         CType(Me.ErrorIcono, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -57,7 +59,7 @@ Partial Class FrmArticulo
         '
         'BtnActualizar
         '
-        Me.BtnActualizar.Location = New System.Drawing.Point(111, 193)
+        Me.BtnActualizar.Location = New System.Drawing.Point(111, 285)
         Me.BtnActualizar.Name = "BtnActualizar"
         Me.BtnActualizar.Size = New System.Drawing.Size(88, 20)
         Me.BtnActualizar.TabIndex = 7
@@ -74,7 +76,7 @@ Partial Class FrmArticulo
         '
         'BtnCabcelar
         '
-        Me.BtnCabcelar.Location = New System.Drawing.Point(263, 193)
+        Me.BtnCabcelar.Location = New System.Drawing.Point(263, 285)
         Me.BtnCabcelar.Name = "BtnCabcelar"
         Me.BtnCabcelar.Size = New System.Drawing.Size(89, 22)
         Me.BtnCabcelar.TabIndex = 5
@@ -83,7 +85,7 @@ Partial Class FrmArticulo
         '
         'BtnInsertar
         '
-        Me.BtnInsertar.Location = New System.Drawing.Point(111, 192)
+        Me.BtnInsertar.Location = New System.Drawing.Point(111, 284)
         Me.BtnInsertar.Name = "BtnInsertar"
         Me.BtnInsertar.Size = New System.Drawing.Size(88, 23)
         Me.BtnInsertar.TabIndex = 4
@@ -92,7 +94,7 @@ Partial Class FrmArticulo
         '
         'Txtdescripcion
         '
-        Me.Txtdescripcion.Location = New System.Drawing.Point(111, 115)
+        Me.Txtdescripcion.Location = New System.Drawing.Point(111, 207)
         Me.Txtdescripcion.Multiline = True
         Me.Txtdescripcion.Name = "Txtdescripcion"
         Me.Txtdescripcion.Size = New System.Drawing.Size(462, 62)
@@ -100,7 +102,7 @@ Partial Class FrmArticulo
         '
         'Txtnombre
         '
-        Me.Txtnombre.Location = New System.Drawing.Point(110, 52)
+        Me.Txtnombre.Location = New System.Drawing.Point(110, 144)
         Me.Txtnombre.Name = "Txtnombre"
         Me.Txtnombre.Size = New System.Drawing.Size(463, 20)
         Me.Txtnombre.TabIndex = 2
@@ -108,7 +110,7 @@ Partial Class FrmArticulo
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(17, 118)
+        Me.Label2.Location = New System.Drawing.Point(17, 210)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(63, 13)
         Me.Label2.TabIndex = 1
@@ -116,6 +118,8 @@ Partial Class FrmArticulo
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.CboCategoria)
+        Me.TabPage2.Controls.Add(Me.Label3)
         Me.TabPage2.Controls.Add(Me.BtnActualizar)
         Me.TabPage2.Controls.Add(Me.TxtId)
         Me.TabPage2.Controls.Add(Me.BtnCabcelar)
@@ -135,7 +139,7 @@ Partial Class FrmArticulo
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(17, 59)
+        Me.Label1.Location = New System.Drawing.Point(17, 151)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(57, 13)
         Me.Label1.TabIndex = 0
@@ -251,6 +255,23 @@ Partial Class FrmArticulo
         Me.TabGeneral.Size = New System.Drawing.Size(930, 411)
         Me.TabGeneral.TabIndex = 1
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(20, 41)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(65, 13)
+        Me.Label3.TabIndex = 8
+        Me.Label3.Text = "Categoria (*)"
+        '
+        'CboCategoria
+        '
+        Me.CboCategoria.FormattingEnabled = True
+        Me.CboCategoria.Location = New System.Drawing.Point(110, 41)
+        Me.CboCategoria.Name = "CboCategoria"
+        Me.CboCategoria.Size = New System.Drawing.Size(463, 21)
+        Me.CboCategoria.TabIndex = 9
+        '
         'FrmArticulo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -291,4 +312,6 @@ Partial Class FrmArticulo
     Friend WithEvents Txtnombre As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents CboCategoria As ComboBox
+    Friend WithEvents Label3 As Label
 End Class
