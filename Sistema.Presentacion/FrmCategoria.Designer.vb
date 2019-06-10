@@ -22,28 +22,39 @@ Partial Class FrmCategoria
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.components = New System.ComponentModel.Container()
+        Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Btnbuscar = New System.Windows.Forms.Button()
+        Me.Txtvalor = New System.Windows.Forms.TextBox()
+        Me.Lbltotal = New System.Windows.Forms.Label()
         Me.DgvListado = New System.Windows.Forms.DataGridView()
         Me.Seleccionar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Lbltotal = New System.Windows.Forms.Label()
-        Me.Txtvalor = New System.Windows.Forms.TextBox()
-        Me.Btnbuscar = New System.Windows.Forms.Button()
-        Me.TabControl1.SuspendLayout()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Txtnombre = New System.Windows.Forms.TextBox()
+        Me.Txtdescripcion = New System.Windows.Forms.TextBox()
+        Me.BtnInsertar = New System.Windows.Forms.Button()
+        Me.BtnCabcelar = New System.Windows.Forms.Button()
+        Me.TxtId = New System.Windows.Forms.TextBox()
+        Me.ErrorIcono = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.TabGeneral.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DgvListado, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage2.SuspendLayout()
+        CType(Me.ErrorIcono, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'TabControl1
+        'TabGeneral
         '
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Location = New System.Drawing.Point(12, 12)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(830, 426)
-        Me.TabControl1.TabIndex = 0
+        Me.TabGeneral.Controls.Add(Me.TabPage1)
+        Me.TabGeneral.Controls.Add(Me.TabPage2)
+        Me.TabGeneral.Location = New System.Drawing.Point(12, 12)
+        Me.TabGeneral.Name = "TabGeneral"
+        Me.TabGeneral.SelectedIndex = 0
+        Me.TabGeneral.Size = New System.Drawing.Size(830, 411)
+        Me.TabGeneral.TabIndex = 0
         '
         'TabPage1
         '
@@ -59,15 +70,30 @@ Partial Class FrmCategoria
         Me.TabPage1.Text = "Listado"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'TabPage2
+        'Btnbuscar
         '
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(631, 400)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Mantenimiento"
-        Me.TabPage2.UseVisualStyleBackColor = True
+        Me.Btnbuscar.Location = New System.Drawing.Point(650, 23)
+        Me.Btnbuscar.Name = "Btnbuscar"
+        Me.Btnbuscar.Size = New System.Drawing.Size(166, 21)
+        Me.Btnbuscar.TabIndex = 3
+        Me.Btnbuscar.Text = "Buscar"
+        Me.Btnbuscar.UseVisualStyleBackColor = True
+        '
+        'Txtvalor
+        '
+        Me.Txtvalor.Location = New System.Drawing.Point(11, 23)
+        Me.Txtvalor.Name = "Txtvalor"
+        Me.Txtvalor.Size = New System.Drawing.Size(633, 20)
+        Me.Txtvalor.TabIndex = 2
+        '
+        'Lbltotal
+        '
+        Me.Lbltotal.AutoSize = True
+        Me.Lbltotal.Location = New System.Drawing.Point(638, 357)
+        Me.Lbltotal.Name = "Lbltotal"
+        Me.Lbltotal.Size = New System.Drawing.Size(31, 13)
+        Me.Lbltotal.TabIndex = 1
+        Me.Lbltotal.Text = "Total"
         '
         'DgvListado
         '
@@ -88,48 +114,106 @@ Partial Class FrmCategoria
         Me.Seleccionar.Name = "Seleccionar"
         Me.Seleccionar.ReadOnly = True
         '
-        'Lbltotal
+        'TabPage2
         '
-        Me.Lbltotal.AutoSize = True
-        Me.Lbltotal.Location = New System.Drawing.Point(638, 357)
-        Me.Lbltotal.Name = "Lbltotal"
-        Me.Lbltotal.Size = New System.Drawing.Size(31, 13)
-        Me.Lbltotal.TabIndex = 1
-        Me.Lbltotal.Text = "Total"
+        Me.TabPage2.Controls.Add(Me.TxtId)
+        Me.TabPage2.Controls.Add(Me.BtnCabcelar)
+        Me.TabPage2.Controls.Add(Me.BtnInsertar)
+        Me.TabPage2.Controls.Add(Me.Txtdescripcion)
+        Me.TabPage2.Controls.Add(Me.Txtnombre)
+        Me.TabPage2.Controls.Add(Me.Label2)
+        Me.TabPage2.Controls.Add(Me.Label1)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(822, 385)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Mantenimiento"
+        Me.TabPage2.UseVisualStyleBackColor = True
         '
-        'Txtvalor
+        'Label1
         '
-        Me.Txtvalor.Location = New System.Drawing.Point(11, 23)
-        Me.Txtvalor.Name = "Txtvalor"
-        Me.Txtvalor.Size = New System.Drawing.Size(633, 20)
-        Me.Txtvalor.TabIndex = 2
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(17, 59)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(57, 13)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Nombre (*)"
         '
-        'Btnbuscar
+        'Label2
         '
-        Me.Btnbuscar.Location = New System.Drawing.Point(650, 23)
-        Me.Btnbuscar.Name = "Btnbuscar"
-        Me.Btnbuscar.Size = New System.Drawing.Size(166, 21)
-        Me.Btnbuscar.TabIndex = 3
-        Me.Btnbuscar.Text = "Buscar"
-        Me.Btnbuscar.UseVisualStyleBackColor = True
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(17, 118)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(63, 13)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Descripción"
+        '
+        'Txtnombre
+        '
+        Me.Txtnombre.Location = New System.Drawing.Point(110, 52)
+        Me.Txtnombre.Name = "Txtnombre"
+        Me.Txtnombre.Size = New System.Drawing.Size(463, 20)
+        Me.Txtnombre.TabIndex = 2
+        '
+        'Txtdescripcion
+        '
+        Me.Txtdescripcion.Location = New System.Drawing.Point(111, 115)
+        Me.Txtdescripcion.Multiline = True
+        Me.Txtdescripcion.Name = "Txtdescripcion"
+        Me.Txtdescripcion.Size = New System.Drawing.Size(462, 62)
+        Me.Txtdescripcion.TabIndex = 3
+        '
+        'BtnInsertar
+        '
+        Me.BtnInsertar.Location = New System.Drawing.Point(111, 192)
+        Me.BtnInsertar.Name = "BtnInsertar"
+        Me.BtnInsertar.Size = New System.Drawing.Size(88, 23)
+        Me.BtnInsertar.TabIndex = 4
+        Me.BtnInsertar.Text = "Insertar"
+        Me.BtnInsertar.UseVisualStyleBackColor = True
+        '
+        'BtnCabcelar
+        '
+        Me.BtnCabcelar.Location = New System.Drawing.Point(263, 193)
+        Me.BtnCabcelar.Name = "BtnCabcelar"
+        Me.BtnCabcelar.Size = New System.Drawing.Size(89, 22)
+        Me.BtnCabcelar.TabIndex = 5
+        Me.BtnCabcelar.Text = "Cancelar"
+        Me.BtnCabcelar.UseVisualStyleBackColor = True
+        '
+        'TxtId
+        '
+        Me.TxtId.Location = New System.Drawing.Point(447, 9)
+        Me.TxtId.Name = "TxtId"
+        Me.TxtId.Size = New System.Drawing.Size(126, 20)
+        Me.TxtId.TabIndex = 6
+        Me.TxtId.Visible = False
+        '
+        'ErrorIcono
+        '
+        Me.ErrorIcono.ContainerControl = Me
         '
         'FrmCategoria
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(854, 450)
-        Me.Controls.Add(Me.TabControl1)
+        Me.Controls.Add(Me.TabGeneral)
         Me.Name = "FrmCategoria"
         Me.Text = "Categorias"
-        Me.TabControl1.ResumeLayout(False)
+        Me.TabGeneral.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
         CType(Me.DgvListado, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
+        CType(Me.ErrorIcono, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents TabGeneral As TabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents DgvListado As DataGridView
     Friend WithEvents Seleccionar As DataGridViewCheckBoxColumn
@@ -137,4 +221,12 @@ Partial Class FrmCategoria
     Friend WithEvents Lbltotal As Label
     Friend WithEvents Btnbuscar As Button
     Friend WithEvents Txtvalor As TextBox
+    Friend WithEvents TxtId As TextBox
+    Friend WithEvents BtnCabcelar As Button
+    Friend WithEvents BtnInsertar As Button
+    Friend WithEvents Txtdescripcion As TextBox
+    Friend WithEvents Txtnombre As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents ErrorIcono As ErrorProvider
 End Class
