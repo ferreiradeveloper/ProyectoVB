@@ -28,6 +28,8 @@ Partial Class FrmCategoria
         Me.DgvListado = New System.Windows.Forms.DataGridView()
         Me.Seleccionar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Lbltotal = New System.Windows.Forms.Label()
+        Me.Txtvalor = New System.Windows.Forms.TextBox()
+        Me.Btnbuscar = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DgvListado, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -45,6 +47,8 @@ Partial Class FrmCategoria
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Btnbuscar)
+        Me.TabPage1.Controls.Add(Me.Txtvalor)
         Me.TabPage1.Controls.Add(Me.Lbltotal)
         Me.TabPage1.Controls.Add(Me.DgvListado)
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
@@ -93,6 +97,22 @@ Partial Class FrmCategoria
         Me.Lbltotal.TabIndex = 1
         Me.Lbltotal.Text = "Total"
         '
+        'Txtvalor
+        '
+        Me.Txtvalor.Location = New System.Drawing.Point(11, 23)
+        Me.Txtvalor.Name = "Txtvalor"
+        Me.Txtvalor.Size = New System.Drawing.Size(633, 20)
+        Me.Txtvalor.TabIndex = 2
+        '
+        'Btnbuscar
+        '
+        Me.Btnbuscar.Location = New System.Drawing.Point(650, 23)
+        Me.Btnbuscar.Name = "Btnbuscar"
+        Me.Btnbuscar.Size = New System.Drawing.Size(166, 21)
+        Me.Btnbuscar.TabIndex = 3
+        Me.Btnbuscar.Text = "Buscar"
+        Me.Btnbuscar.UseVisualStyleBackColor = True
+        '
         'FrmCategoria
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -115,4 +135,6 @@ Partial Class FrmCategoria
     Friend WithEvents Seleccionar As DataGridViewCheckBoxColumn
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents Lbltotal As Label
+    Friend WithEvents Btnbuscar As Button
+    Friend WithEvents Txtvalor As TextBox
 End Class
