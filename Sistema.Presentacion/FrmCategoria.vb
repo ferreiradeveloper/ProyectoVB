@@ -166,4 +166,40 @@
         End If
 
     End Sub
+
+    Private Sub BtnActivar_Click(sender As Object, e As EventArgs) Handles BtnActivar.Click
+        If (MsgBox("Esta Seguro de Activarar los registros seleccionados?", vbYesNo + vbQuestion, "Activar Registros") = vbYes) Then
+            Try
+                Dim Neg As New Negocio.NCategoria
+                For Each row As DataGridViewRow In DgvListado.Rows
+                    Dim marcado As Boolean = Convert.ToBoolean(row.Cells("Seleccionar").Value)
+                    If marcado Then
+                        Dim OneKey As Integer = Convert.ToInt32(row.Cells("ID").Value)
+                        Neg.Activar(OneKey)
+                    End If
+                Next
+                Me.Listar()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub BtnDesactivar_Click(sender As Object, e As EventArgs) Handles BtnDesactivar.Click
+        If (MsgBox("Esta Seguro de desactivarar los registros seleccionados?", vbYesNo + vbQuestion, "desactivar Registros") = vbYes) Then
+            Try
+                Dim Neg As New Negocio.NCategoria
+                For Each row As DataGridViewRow In DgvListado.Rows
+                    Dim marcado As Boolean = Convert.ToBoolean(row.Cells("Seleccionar").Value)
+                    If marcado Then
+                        Dim OneKey As Integer = Convert.ToInt32(row.Cells("ID").Value)
+                        Neg.Desactivar(OneKey)
+                    End If
+                Next
+                Me.Listar()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
+    End Sub
 End Class
