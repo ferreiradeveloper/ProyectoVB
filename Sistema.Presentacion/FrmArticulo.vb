@@ -1,4 +1,7 @@
 ﻿Public Class FrmArticulo
+    Private RutaOrigen As String
+    Private RutaDestino As String
+    Private Directorio As String = "C:\Preparacion\ProyectoVB\imagenes"
 
     Private Sub Formato()
         DgvListado.Columns(0).Visible = False
@@ -75,5 +78,17 @@
 
     Private Sub Btnbuscar_Click(sender As Object, e As EventArgs) Handles Btnbuscar.Click
         Me.Buscar()
+    End Sub
+
+    Private Sub Btncargarimagen_Click(sender As Object, e As EventArgs) Handles Btncargarimagen.Click
+        Dim File As New OpenFileDialog()
+        File.Filter = "Image Files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png"
+        If File.ShowDialog() = DialogResult.OK Then
+            PicImagen.Image = Image.FromFile(File.FileName)
+            RutaOrigen = File.FileName
+            Txtimagen.Text = File.FileName.Substring(File.FileName.LastIndexOf("\") + 1)
+
+        End If
+
     End Sub
 End Class

@@ -46,11 +46,16 @@ Partial Class FrmArticulo
         Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.CboCategoria = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Txtimagen = New System.Windows.Forms.TextBox()
+        Me.Btncargarimagen = New System.Windows.Forms.Button()
+        Me.PicImagen = New System.Windows.Forms.PictureBox()
         CType(Me.ErrorIcono, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DgvListado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabGeneral.SuspendLayout()
+        CType(Me.PicImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ErrorIcono
@@ -68,9 +73,9 @@ Partial Class FrmArticulo
         '
         'TxtId
         '
-        Me.TxtId.Location = New System.Drawing.Point(447, 9)
+        Me.TxtId.Location = New System.Drawing.Point(432, 9)
         Me.TxtId.Name = "TxtId"
-        Me.TxtId.Size = New System.Drawing.Size(126, 20)
+        Me.TxtId.Size = New System.Drawing.Size(75, 20)
         Me.TxtId.TabIndex = 6
         Me.TxtId.Visible = False
         '
@@ -97,14 +102,14 @@ Partial Class FrmArticulo
         Me.Txtdescripcion.Location = New System.Drawing.Point(111, 207)
         Me.Txtdescripcion.Multiline = True
         Me.Txtdescripcion.Name = "Txtdescripcion"
-        Me.Txtdescripcion.Size = New System.Drawing.Size(462, 62)
+        Me.Txtdescripcion.Size = New System.Drawing.Size(396, 62)
         Me.Txtdescripcion.TabIndex = 3
         '
         'Txtnombre
         '
         Me.Txtnombre.Location = New System.Drawing.Point(110, 144)
         Me.Txtnombre.Name = "Txtnombre"
-        Me.Txtnombre.Size = New System.Drawing.Size(463, 20)
+        Me.Txtnombre.Size = New System.Drawing.Size(397, 20)
         Me.Txtnombre.TabIndex = 2
         '
         'Label2
@@ -118,6 +123,10 @@ Partial Class FrmArticulo
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.PicImagen)
+        Me.TabPage2.Controls.Add(Me.Btncargarimagen)
+        Me.TabPage2.Controls.Add(Me.Txtimagen)
+        Me.TabPage2.Controls.Add(Me.Label4)
         Me.TabPage2.Controls.Add(Me.CboCategoria)
         Me.TabPage2.Controls.Add(Me.Label3)
         Me.TabPage2.Controls.Add(Me.BtnActualizar)
@@ -269,8 +278,43 @@ Partial Class FrmArticulo
         Me.CboCategoria.FormattingEnabled = True
         Me.CboCategoria.Location = New System.Drawing.Point(110, 41)
         Me.CboCategoria.Name = "CboCategoria"
-        Me.CboCategoria.Size = New System.Drawing.Size(463, 21)
+        Me.CboCategoria.Size = New System.Drawing.Size(397, 21)
         Me.CboCategoria.TabIndex = 9
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(570, 49)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(42, 13)
+        Me.Label4.TabIndex = 10
+        Me.Label4.Text = "Imagen"
+        '
+        'Txtimagen
+        '
+        Me.Txtimagen.Enabled = False
+        Me.Txtimagen.Location = New System.Drawing.Point(628, 46)
+        Me.Txtimagen.Name = "Txtimagen"
+        Me.Txtimagen.Size = New System.Drawing.Size(170, 20)
+        Me.Txtimagen.TabIndex = 11
+        '
+        'Btncargarimagen
+        '
+        Me.Btncargarimagen.Location = New System.Drawing.Point(824, 44)
+        Me.Btncargarimagen.Name = "Btncargarimagen"
+        Me.Btncargarimagen.Size = New System.Drawing.Size(75, 23)
+        Me.Btncargarimagen.TabIndex = 12
+        Me.Btncargarimagen.Text = "..."
+        Me.Btncargarimagen.UseVisualStyleBackColor = True
+        '
+        'PicImagen
+        '
+        Me.PicImagen.Location = New System.Drawing.Point(578, 83)
+        Me.PicImagen.Name = "PicImagen"
+        Me.PicImagen.Size = New System.Drawing.Size(320, 223)
+        Me.PicImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PicImagen.TabIndex = 13
+        Me.PicImagen.TabStop = False
         '
         'FrmArticulo
         '
@@ -287,6 +331,7 @@ Partial Class FrmArticulo
         Me.TabPage1.PerformLayout()
         CType(Me.DgvListado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabGeneral.ResumeLayout(False)
+        CType(Me.PicImagen, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -314,4 +359,8 @@ Partial Class FrmArticulo
     Friend WithEvents Label1 As Label
     Friend WithEvents CboCategoria As ComboBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents PicImagen As PictureBox
+    Friend WithEvents Btncargarimagen As Button
+    Friend WithEvents Txtimagen As TextBox
+    Friend WithEvents Label4 As Label
 End Class
