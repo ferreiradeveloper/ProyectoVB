@@ -14,6 +14,7 @@
             DgvListado.DataSource = Neg.Listar()
             Lbltotal.Text = "Total Registros: " & DgvListado.DataSource.Rows.Count
             Me.Formato()
+            Me.Limpiar()
         Catch ex As Exception
             MsgBox(ex.Message)
 
@@ -35,6 +36,7 @@
 
     Private Sub Limpiar()
         BtnInsertar.Visible = True
+        BtnActualizar.Visible = False
         Txtvalor.Text = ""
         TxtId.Text = ""
         Txtnombre.Text = ""
@@ -58,7 +60,7 @@
 
             If (Neg.Insertar(Obj)) Then
                 MsgBox("Se ha Registrado Correctamente", vbOKOnly + vbInformation, "Registro Correcto")
-                Me.Limpiar()
+                'Me.Limpiar()
                 Me.Listar()
             Else
                 MsgBox("No se logro Registrar", vbOKOnly + vbCritical, "Registro Incorrecto")
@@ -82,5 +84,38 @@
             Me.ErrorIcono.SetError(sender, "Ingrese el nombre de la catagoria")
         End If
 
+    End Sub
+
+    Private Sub DgvListado_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvListado.CellDoubleClick
+        TxtId.Text = DgvListado.SelectedCells.Item(1).Value
+        Txtnombre.Text = DgvListado.SelectedCells.Item(2).Value
+        Txtdescripcion.Text = DgvListado.SelectedCells.Item(3).Value
+        BtnInsertar.Visible = False
+        BtnActualizar.Visible = True
+        TabGeneral.SelectedIndex = 1
+    End Sub
+
+    Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles BtnActualizar.Click
+        If Me.ValidateChildren = True And Txtnombre.Text <> "" And TxtId.Text <> "" Then
+            Dim Obj As New Entidades.Categoria
+            Dim Neg As New Negocio.NCategoria
+
+            Obj.IdCategoria = TxtId.Text
+            Obj.Nombre = Txtnombre.Text
+            Obj.Descripcion = Txtdescripcion.Text
+
+            If (Neg.Actualizar(Obj)) Then
+                MsgBox("Se ha Actualizado Correctamente", vbOKOnly + vbInformation, "Actualizacion Correcta ")
+                Me.Listar()
+                TabGeneral.SelectedIndex = 0
+
+            Else
+                MsgBox("No se logro Actualizar", vbOKOnly + vbCritical, "Actualizacion Incorrecta")
+
+            End If
+        Else
+            MsgBox("Complete los campos obligatorios (*)", vbOKOnly + vbCritical, "Falta ingresar datos")
+
+        End If
     End Sub
 End Class

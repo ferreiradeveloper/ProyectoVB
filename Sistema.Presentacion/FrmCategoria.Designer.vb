@@ -39,6 +39,7 @@ Partial Class FrmCategoria
         Me.BtnCabcelar = New System.Windows.Forms.Button()
         Me.TxtId = New System.Windows.Forms.TextBox()
         Me.ErrorIcono = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.BtnActualizar = New System.Windows.Forms.Button()
         Me.TabGeneral.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DgvListado, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,7 +66,7 @@ Partial Class FrmCategoria
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(822, 400)
+        Me.TabPage1.Size = New System.Drawing.Size(822, 385)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Listado"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -105,6 +106,7 @@ Partial Class FrmCategoria
         Me.DgvListado.Location = New System.Drawing.Point(7, 60)
         Me.DgvListado.Name = "DgvListado"
         Me.DgvListado.ReadOnly = True
+        Me.DgvListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvListado.Size = New System.Drawing.Size(809, 294)
         Me.DgvListado.TabIndex = 0
         '
@@ -116,6 +118,7 @@ Partial Class FrmCategoria
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.BtnActualizar)
         Me.TabPage2.Controls.Add(Me.TxtId)
         Me.TabPage2.Controls.Add(Me.BtnCabcelar)
         Me.TabPage2.Controls.Add(Me.BtnInsertar)
@@ -194,6 +197,15 @@ Partial Class FrmCategoria
         '
         Me.ErrorIcono.ContainerControl = Me
         '
+        'BtnActualizar
+        '
+        Me.BtnActualizar.Location = New System.Drawing.Point(111, 193)
+        Me.BtnActualizar.Name = "BtnActualizar"
+        Me.BtnActualizar.Size = New System.Drawing.Size(88, 20)
+        Me.BtnActualizar.TabIndex = 7
+        Me.BtnActualizar.Text = "Actualizar"
+        Me.BtnActualizar.UseVisualStyleBackColor = True
+        '
         'FrmCategoria
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -229,4 +241,5 @@ Partial Class FrmCategoria
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents ErrorIcono As ErrorProvider
+    Friend WithEvents BtnActualizar As Button
 End Class
