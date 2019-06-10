@@ -94,4 +94,14 @@ Public Class frmPrincipal
         frm.MdiParent = Me
         frm.Show()
     End Sub
+
+    'Private Sub AlmacenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AlmacenToolStripMenuItem.Click
+
+    'End Sub
+
+    Private Sub ArticulosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArticulosToolStripMenuItem.Click
+        Dim frm As New FrmArticulo
+        frm.MdiParent = Me
+        frm.Show()
+    End Sub
 End Class
