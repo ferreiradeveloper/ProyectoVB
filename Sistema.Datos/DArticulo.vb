@@ -63,6 +63,7 @@ Public Class DArticulo
     Public Sub Actualizar(Obj As Articulo)
         Try
             Dim Comando As New SqlCommand("articulo_actualizar", MyBase.conn)
+            Comando.CommandType = CommandType.StoredProcedure
             Comando.Parameters.Add("@idarticulo", SqlDbType.Int).Value = Obj.IdArticulo
             Comando.Parameters.Add("@idcategoria", SqlDbType.Int).Value = Obj.IdCategorias
             Comando.Parameters.Add("@codigo", SqlDbType.VarChar).Value = Obj.Codigo
@@ -71,6 +72,7 @@ Public Class DArticulo
             Comando.Parameters.Add("@stock", SqlDbType.Int).Value = Obj.Stock
             Comando.Parameters.Add("@imagen", SqlDbType.VarChar).Value = Obj.Imagen
             Comando.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = Obj.Descripcion
+            MyBase.conn.Open()
             Comando.ExecuteNonQuery()
             MyBase.conn.Close()
         Catch ex As Exception

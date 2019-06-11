@@ -65,6 +65,7 @@ Public Class FrmArticulo
         TxtStock.Text = ""
         Txtimagen.Text = ""
         PicImagen.Image = Nothing
+        RutaOrigen = ""
 
     End Sub
     Private Sub CargarCategoria()
@@ -134,5 +135,64 @@ Public Class FrmArticulo
     Private Sub BtnCabcelar_Click(sender As Object, e As EventArgs) Handles BtnCabcelar.Click
         Me.Limpiar()
         TabGeneral.SelectedIndex = 0
+    End Sub
+
+    Private Sub DgvListado_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvListado.CellDoubleClick
+        Try
+            TxtId.Text = DgvListado.SelectedCells.Item(1).Value
+            CboCategoria.SelectedValue = DgvListado.SelectedCells.Item(2).Value
+            TxtCodigo.Text = DgvListado.SelectedCells.Item(4).Value
+            Txtnombre.Text = DgvListado.SelectedCells.Item(5).Value
+            TxtPrecioVenta.Text = DgvListado.SelectedCells.Item(6).Value
+            TxtStock.Text = DgvListado.SelectedCells.Item(7).Value
+            Txtdescripcion.Text = DgvListado.SelectedCells.Item(8).Value
+            Dim Imagen As String
+            Imagen = DgvListado.SelectedCells.Item(9).Value
+            If (Imagen <> "") Then
+                PicImagen.Image = Image.FromFile(Directorio & Imagen)
+                Txtimagen.Text = Imagen
+            Else
+                PicImagen.Image = Nothing
+                Txtimagen.Text = ""
+            End If
+            BtnInsertar.Visible = False
+            BtnActualizar.Visible = True
+            TabGeneral.SelectedIndex = 1
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles BtnActualizar.Click
+        Try
+            If Me.ValidateChildren = True And CboCategoria.Text <> "" And Txtnombre.Text <> "" And TxtPrecioVenta.Text <> "" And TxtStock.Text <> "" And TxtId.Text <> "" Then
+                Dim Obj As New Entidades.Articulo
+                Dim Neg As New Negocio.NArticulo
+
+                Obj.IdArticulo = TxtId.Text
+                Obj.IdCategorias = CboCategoria.SelectedValue
+                Obj.Codigo = TxtCodigo.Text
+                Obj.Nombre = Txtnombre.Text
+                Obj.PrecioVenta = TxtPrecioVenta.Text
+                Obj.Stock = TxtStock.Text
+                Obj.Imagen = Txtimagen.Text
+                Obj.Descripcion = Txtdescripcion.Text
+
+                If (Neg.Actualizar(Obj)) Then
+                    MsgBox("Se ha actualizado Correctamente", vbOKOnly + vbInformation, "actualizacion Correcta")
+                    If (Txtimagen.Text <> "" And RutaOrigen <> "") Then
+                        RutaDestino = Directorio & Txtimagen.Text
+                        File.Copy(RutaOrigen, RutaDestino)
+                    End If
+                    Me.Listar()
+                Else
+                    MsgBox("No se logro actualizaro", vbOKOnly + vbCritical, "actualizacion  Incorrecta")
+                End If
+            Else
+                MsgBox("Complete los campos obligatorios (*)", vbOKOnly + vbCritical, "Falta ingresar datos")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 End Class
